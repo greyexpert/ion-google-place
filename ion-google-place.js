@@ -20,14 +20,14 @@ angular.module('ion-google-place', [])
                 },
                 link: function(scope, element, attrs, ngModel) {
                     var unbindBackButtonAction;
-
+                    console.log(ngModel);
                     scope.locations = [];
                     var geocoder = new google.maps.Geocoder();
                     var searchEventTimeout = undefined;
 
                     scope.displayCurrentLocation = false;
                     scope.currentLocation = scope.currentLocation === "true"? true:false;
-                    
+
                     if(!!navigator.geolocation && scope.currentLocation){
                         scope.displayCurrentLocation = true;
                     }
@@ -195,10 +195,10 @@ angular.module('ion-google-place', [])
                     });
 
                     ngModel.$render = function(){
-                        if(!ngModel.$viewValue){
+                        if(!ngModel.$modelValue){
                             element.val('');
                         } else {
-                            element.val(ngModel.$viewValue.formatted_address || '');
+                            element.val(ngModel.$modelValue.formatted_address || '');
                         }
                     };
 
