@@ -20,7 +20,6 @@ angular.module('ion-google-place', [])
                 },
                 link: function(scope, element, attrs, ngModel) {
                     var unbindBackButtonAction;
-                    console.log(ngModel);
                     scope.locations = [];
                     var geocoder = new google.maps.Geocoder();
                     var searchEventTimeout = undefined;
